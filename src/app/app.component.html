@@ -2,16 +2,20 @@
 
   <mat-drawer [opened]="true" #drawer class="sidenav" mode="side">
     <div class="logo-container">Foto für Logo</div>
-    
+
     <ul>
       <li>
-        <mat-icon>dashboard</mat-icon> Dashboard
+        <a routerLink="dashboard">
+          <mat-icon>dashboard</mat-icon> Dashboard
+        </a>
       </li>
       <li>
-        <mat-icon>perm_identity</mat-icon> User
+        <a routerLink="user">
+          <mat-icon>perm_identity</mat-icon> User
+        </a>
       </li>
     </ul>
-    
+
   </mat-drawer>
 
   <div class="example-sidenav-content">
@@ -23,6 +27,11 @@
         <span>Simple CRM</span>
       </mat-toolbar-row>
     </mat-toolbar>
+
+    <div class="router-container">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 
 </mat-drawer-container>
