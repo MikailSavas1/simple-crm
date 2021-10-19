@@ -34,6 +34,7 @@ export class DialogAddUserComponent implements OnInit {
       .then((result: any) => {
         console.log('Adding User Finished ', result);
         this.isLoading = false;
+        this.dialogRef.close();
       })
   }
 
