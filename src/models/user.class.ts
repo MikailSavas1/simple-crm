@@ -1,4 +1,4 @@
-export class User{
+export class User {
 
     firstName: string;
     lastName: string;
@@ -7,7 +7,18 @@ export class User{
     zipCode: number;
     city: string;
 
-    constructor(){
-        
+    constructor() {
+
+    }
+
+    toJson(): object {
+        return {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            birthDate: this.birthDate,
+            street: this.street,
+            zipCode: this.zipCode,
+            city: this.city
+        }
     }
 }
