@@ -1,51 +1,58 @@
-<h1 mat-dialog-title>Add User</h1>
-<div mat-dialog-content>
-  <!-- Name -->
-  <div>
-    <mat-form-field appearance="outline" class="mr-16">
-      <mat-label>First Name</mat-label>
-      <input matInput placeholder="Placeholder" [(ngModel)]="user.firstName">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Last Name</mat-label>
-      <input matInput placeholder="Placeholder" [(ngModel)]="user.lastName">
-    </mat-form-field>
+<div class="dialog-container">
+
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+  <h1 mat-dialog-title>Add User</h1>
+  <div mat-dialog-content>
+    <!-- Name -->
+    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>First Name</mat-label>
+        <input [disabled]="isLoading" matInput placeholder="Placeholder" [(ngModel)]="user.firstName">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input [disabled]="isLoading" matInput placeholder="Placeholder" [(ngModel)]="user.lastName">
+      </mat-form-field>
+    </div>
+
+    <!-- Birth Date-->
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Birth Day</mat-label>
+        <input [disabled]="isLoading" matInput placeholder="Date" [matDatepicker]="picker" [(ngModel)]="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- Address-->
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Street + House No.</mat-label>
+        <input [disabled]="isLoading" matInput placeholder="Placeholder" [(ngModel)]="user.street">
+      </mat-form-field>
+    </div>
+
+    <!-- City -->
+    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>Zip Code</mat-label>
+        <input [disabled]="isLoading" matInput #postalCode maxlength="5" placeholder="Ex. 94105"
+          [(ngModel)]="user.zipCode">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input [disabled]="isLoading" matInput placeholder="Placeholder" [(ngModel)]="user.city">
+      </mat-form-field>
+    </div>
+
+
   </div>
 
-  <!-- Birth Date-->
-  <div>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Birth Day</mat-label>
-      <input matInput placeholder="Date" [matDatepicker]="picker" [(ngModel)]="birthDate">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" [disabled]="isLoading">Cancel</button>
+    <button mat-button (click)="saveUser()" [disabled]="isLoading" cdkFocusInitial>Save</button>
   </div>
 
-  <!-- Address-->
-  <div>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Street + House No.</mat-label>
-      <input matInput placeholder="Placeholder" [(ngModel)]="user.street">
-    </mat-form-field>
-  </div>
-
-  <!-- City -->
-  <div>
-    <mat-form-field appearance="outline" class="mr-16">
-      <mat-label>Zip Code</mat-label>
-      <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" [(ngModel)]="user.zipCode">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>City</mat-label>
-      <input matInput placeholder="Placeholder" [(ngModel)]="user.city">
-    </mat-form-field>
-  </div>
-  
-
-</div>
-
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button (click)="saveUser()" [mat-dialog-close]="'save'" cdkFocusInitial>Save</button>
 </div>
