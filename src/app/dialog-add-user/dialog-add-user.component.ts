@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -16,6 +17,16 @@ export class DialogAddUserComponent implements OnInit {
   birthDate: Date;
 
   isLoading: boolean = false;
+
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email': '';
+  }
 
   ngOnInit(): void {
   }

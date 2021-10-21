@@ -1,0 +1,21 @@
+.user-detail-header {
+    min-height: 250px;
+    background-color: #c7e8df;
+    display: flex;
+    align-items: flex-end;
+
+    img {
+        width: 75px;
+        margin: 8px;
+    }
+
+    .headline {
+        margin-left: 16px;
+    }
+}
+
+.edit-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

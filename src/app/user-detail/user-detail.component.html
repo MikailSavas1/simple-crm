@@ -1,0 +1,35 @@
+<mat-card class="user-detail-header">
+
+    <button mat-icon-button class="edit-btn" [matMenuTriggerFor]="editName">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #editName="matMenu">
+        <button mat-menu-item (click)="openDialogEditName()">Edit</button>
+    </mat-menu>
+
+    <img src="assets/img/man.png">
+
+    <div class="headline">
+        <mat-card-title>{{representedUser.firstName}} {{representedUser.lastName}}</mat-card-title>
+        <mat-card-subtitle>{{representedUser.email}}</mat-card-subtitle>
+    </div>
+
+</mat-card>
+
+<mat-card class="mt-32">
+
+    <button mat-icon-button class="edit-btn" [matMenuTriggerFor]="editAddress">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #editAddress="matMenu">
+        <button mat-menu-item (click)="openDialogEditAddress()">Edit</button>
+    </mat-menu>
+
+    <mat-card-title>Address</mat-card-title>
+    <mat-card-content>
+        {{representedUser.street}} <br>
+        {{representedUser.zipCode}} {{representedUser.city}}
+    </mat-card-content>
+</mat-card>

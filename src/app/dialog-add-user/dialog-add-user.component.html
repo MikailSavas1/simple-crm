@@ -16,6 +16,15 @@
       </mat-form-field>
     </div>
 
+    <!-- Email-->
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Enter your email</mat-label>
+        <input [disabled]="isLoading" matInput placeholder="pat@example.com" [(ngModel)]="user.email" [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
     <!-- Birth Date-->
     <div>
       <mat-form-field appearance="outline" class="full-width">

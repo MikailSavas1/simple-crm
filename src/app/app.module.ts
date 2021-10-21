@@ -21,7 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -33,13 +33,22 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
+import { DialogEditNameComponent } from './dialog-edit-name/dialog-edit-name.component';
+import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     UserComponent,
-    DialogAddUserComponent
+    DialogAddUserComponent,
+    UserDetailComponent,
+    DialogEditNameComponent,
+    DialogEditAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +73,10 @@ import {MatTableModule} from '@angular/material/table';
     provideStorage(() => getStorage()),
     AngularFireModule.initializeApp(environment.firebase),
     MatProgressBarModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
