@@ -11,7 +11,7 @@ import { User } from 'src/models/user.class';
 })
 export class DialogEditNameComponent implements OnInit {
 
-  user: User;
+  user: User = new User();
   userId: string;
 
   isLoading = false;

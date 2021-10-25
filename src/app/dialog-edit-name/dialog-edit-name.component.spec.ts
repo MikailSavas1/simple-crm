@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire/compat';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 import { DialogEditNameComponent } from './dialog-edit-name.component';
 
@@ -8,9 +12,16 @@ describe('DialogEditNameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogEditNameComponent ]
+      imports: [RouterModule.forRoot([]), MatDialogModule,AngularFireModule.initializeApp(environment.firebase)],
+      declarations: [DialogEditNameComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
